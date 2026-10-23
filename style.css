@@ -60,6 +60,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 .theme svg{width:18px;height:18px}
 @media (max-width:860px){.links{order:3;width:100%;margin-left:0}.theme{margin-left:auto}}
 
+/* Reuses the plate mark to introduce the site's nutrition focus, then clears the page quickly. */
+.splash{position:fixed;inset:0;z-index:40;display:grid;place-items:center;padding:24px;background:var(--bg);color:var(--fg);
+  pointer-events:none;animation:splash-dismiss 1.4s ease-out forwards}
+.splash-content{display:grid;justify-items:center;gap:12px;text-align:center}
+.splash-mark{width:clamp(64px,18vw,88px);height:auto}
+.splash-name{font-family:var(--f-display);font-size:clamp(1.25rem,5vw,1.8rem);font-weight:700;line-height:1.2}
+.splash-tagline{color:var(--muted);font-size:clamp(.95rem,3.5vw,1.05rem)}
+@keyframes splash-dismiss{0%,65%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+
 /* ---------- hero ---------- */
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(36px,6vw,72px) clamp(28px,5vw,56px)}
 .hero h1{font-weight:800;font-size:clamp(2.1rem,5.6vw,4.1rem);line-height:1.06;margin-top:14px}
@@ -125,6 +134,7 @@ section{padding-block:clamp(48px,8vw,96px)}
 @media (prefers-reduced-motion: reduce){
   .reveal.pre{opacity:1;transform:none}
   .chip,.ticker-track,.plate .seg,.hl::after{animation:none!important}
+  .splash{display:none}
   html{scroll-behavior:auto}
 }
 
